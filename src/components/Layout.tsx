@@ -9,7 +9,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-1 p-4 bg-gray-100">{children}</main>
+      <main className="flex-1 w-full pt-4">
+        <div className="max-w-6xl mx-auto">{children}</div>
+      </main>
     </div>
   );
 };
