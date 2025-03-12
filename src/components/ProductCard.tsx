@@ -16,7 +16,7 @@ const ProductCard: FC<Props> = ({ product }) => {
       : "bg-[var(--custom-rose)]";
 
   return (
-    <div className="w-full bg-white rounded-2xl shadow-lg overflow-hidden text-center cursor-pointer flex flex-col h-full">
+    <div className="w-full bg-white rounded-2xl shadow-[var(--box-shadow)] overflow-hidden text-center cursor-pointer flex flex-col h-full">
       <h2 className="px-4 pt-4 pb-2 text-lg font-semibold text-gray-800">
         {title}
       </h2>

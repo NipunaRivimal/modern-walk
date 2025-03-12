@@ -24,7 +24,7 @@ const CategoryCard: FC<Props> = ({ gender }) => {
 
   return (
     <div
-      className={`w-full h-60 rounded-2xl shadow-lg flex items-center justify-center cursor-pointer ${bgColor}`}
+      className={`w-full h-60 rounded-2xl shadow-[var(--box-shadow)] flex items-center justify-center cursor-pointer ${bgColor}`}
       onClick={onCardClick}
     >
       <h2 className="text-white text-2xl font-bold">
