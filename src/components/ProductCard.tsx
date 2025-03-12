@@ -1,27 +1,28 @@
-import React from "react";
+import React, { FC } from "react";
 
 import Image from "next/image";
 
-const ProductCard = () => {
+import { Product } from "@/types/types";
+
+interface Props {
+  product: Product;
+}
+
+const ProductCard: FC<Props> = ({ product }) => {
+  const { category, description, price, image, title } = product;
+  const bgColor = category === "men's clothing" ? "bg-teal-400" : "bg-rose-400";
+
   return (
-    <div className="w-[350px] bg-white rounded-2xl shadow-lg overflow-hidden text-center cursor-pointer">
-      <h2 className="p-4 text-lg font-semibold text-gray-800">
-        Mens Cotton Jacket
+    <div className="w-full bg-white rounded-2xl shadow-lg overflow-hidden text-center cursor-pointer flex flex-col h-full">
+      <h2 className="px-4 pt-4 pb-2 text-lg font-semibold text-gray-800">
+        {title}
       </h2>
-      <div className="m-4 h-60 relative justify-center items-center">
-        <Image
-          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-          alt="Mens Cotton Jacket"
-          fill
-          className="object-contain w-full h-auto"
-        />
+      <div className="relative h-48 flex px-4 mt-auto">
+        <Image src={image} alt={title} fill className="object-contain" />
       </div>
-      <div className="bg-teal-400 p-4 text-black rounded-2xl">
-        <p className="text-xl font-bold text-blue-600 mb-2">Rs 55.99</p>
-        <p className="text-sm leading-snug line-clamp-2">
-          Great outerwear jackets for Spring/Autumn/Winter, suitable for many
-          occasions, such as working, hiking...
-        </p>
+      <div className={`p-4 text-black rounded-t-2xl ${bgColor} mt-auto`}>
+        <p className="text-xl font-bold text-blue-600 mb-1">Rs {price}</p>
+        <p className="text-sm leading-snug line-clamp-2">{description}</p>
       </div>
     </div>
   );
