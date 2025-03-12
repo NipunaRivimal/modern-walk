@@ -17,3 +17,13 @@ export type Rating = {
   rate: number;
   count: number;
 };
+
+export enum ProductCategory {
+  MENS_CLOTHING = "men's clothing",
+  WOMENS_CLOTHING = "women's clothing",
+}
+
+export enum ProductPage {
+  MENS_PAGE = "mens-clothing",
+  WOMENS_PAGE = "womens-clothing",
+}
