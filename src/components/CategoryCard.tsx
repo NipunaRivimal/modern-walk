@@ -14,7 +14,9 @@ const CategoryCard: FC<Props> = ({ gender }) => {
   const { Men } = Gender;
   const { MENS_PAGE, WOMENS_PAGE } = ProductPage;
   const isMen = gender === Men;
-  const bgColor = isMen ? "bg-teal-400" : "bg-rose-400";
+  const bgColor = isMen
+    ? "bg-[var(--custom-green)]"
+    : "bg-[var(--custom-rose)]";
 
   const onCardClick = () => {
     push(isMen ? MENS_PAGE : WOMENS_PAGE);

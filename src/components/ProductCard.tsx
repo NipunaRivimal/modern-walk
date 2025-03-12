@@ -10,7 +10,10 @@ interface Props {
 
 const ProductCard: FC<Props> = ({ product }) => {
   const { category, description, price, image, title } = product;
-  const bgColor = category === "men's clothing" ? "bg-teal-400" : "bg-rose-400";
+  const bgColor =
+    category === "men's clothing"
+      ? "bg-[var(--custom-green)]"
+      : "bg-[var(--custom-rose)]";
 
   return (
     <div className="w-full bg-white rounded-2xl shadow-lg overflow-hidden text-center cursor-pointer flex flex-col h-full">
