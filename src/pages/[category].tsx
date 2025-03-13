@@ -6,12 +6,18 @@ import { ProductPage } from "@/types/types";
 import ProductCard from "@/components/ProductCard";
 import useGetProducts from "@/hooks/useGetProducts";
 import Head from "next/head";
+import Loader from "@/components/Loader";
+import Error from "@/components/Error";
 
 const { MENS_PAGE, WOMENS_PAGE } = ProductPage;
 
 const Category = () => {
   const [title, setTitle] = useState("");
-  const { products } = useGetProducts();
+  const {
+    products,
+    isLoading: isLoadingProducts,
+    error: productError,
+  } = useGetProducts();
 
   const {
     query: { category },
@@ -34,17 +40,23 @@ const Category = () => {
     }
   }, [category]);
 
+  if (productError) return <Error error={productError} />;
+
   return (
     <div>
       <Head>
         <title>{title} | Modern Walk</title>
       </Head>
       <h2 className="pb-2 text-2xl font-semibold text-gray-800">{title}</h2>
-      <div className="flex flex-wrap gap-6">
-        {products.map((item) => {
-          return <ProductCard key={item.id} product={item} />;
-        })}
-      </div>
+      {isLoadingProducts ? (
+        <Loader />
+      ) : (
+        <div className="flex flex-wrap gap-6">
+          {products.map((item) => {
+            return <ProductCard key={item.id} product={item} />;
+          })}
+        </div>
+      )}
     </div>
   );
 };
