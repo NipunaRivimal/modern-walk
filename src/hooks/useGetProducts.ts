@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { Product, ProductCategory, Sort } from "@/types/types";
+import { fakeApi } from "@/utils/constants";
 
 interface GetProductsProps {
   category: ProductCategory;
@@ -23,7 +24,7 @@ const useGetProducts = ({
     const encodedCategory = encodeURIComponent(category);
 
     fetch(
-      `https://fakestoreapi.com/products/category/${encodedCategory}?sort=${sort}&limit=${limit}`
+      `${fakeApi}/products/category/${encodedCategory}?sort=${sort}&limit=${limit}`
     )
       .then((response) => response.json() as Promise<Product[]>)
       .then((data) => {

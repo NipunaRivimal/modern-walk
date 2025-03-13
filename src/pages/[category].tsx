@@ -41,8 +41,6 @@ const Category = () => {
     }
   }, [category]);
 
-  if (productError) return <Error error={productError} />;
-
   return (
     <div>
       <Head>

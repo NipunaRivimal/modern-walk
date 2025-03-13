@@ -23,3 +23,5 @@ export const defaultProductCategoryStyles = {
   backgroundColor: "bg-gray-500",
   page: ProductPage.MENS_PAGE,
 };
+
+export const fakeApi = "https://fakestoreapi.com";

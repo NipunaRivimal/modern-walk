@@ -34,7 +34,6 @@ const ProductCard: FC<Props> = ({ product, cardWidth = 300 }) => {
             fill
             className="w-full h-auto object-contain"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            priority
           />
         </div>
         <div
