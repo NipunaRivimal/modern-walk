@@ -2,18 +2,18 @@ import React, { FC } from "react";
 
 import { useRouter } from "next/router";
 
-import { Gender, ProductPage } from "@/types/types";
+import { ProductCategory, ProductPage } from "@/types/types";
 
 interface Props {
-  gender: Gender;
+  category: ProductCategory;
 }
 
-const CategoryCard: FC<Props> = ({ gender }) => {
+const CategoryCard: FC<Props> = ({ category }) => {
   const { push } = useRouter();
 
-  const { Men } = Gender;
   const { MENS_PAGE, WOMENS_PAGE } = ProductPage;
-  const isMen = gender === Men;
+  const { MENS_CLOTHING } = ProductCategory;
+  const isMen = category === MENS_CLOTHING;
   const bgColor = isMen
     ? "bg-[var(--custom-green)]"
     : "bg-[var(--custom-rose)]";

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import { ProductPage } from "@/types/types";
 import ProductCard from "@/components/ProductCard";
 import useGetProducts from "@/hooks/useGetProducts";
-import Head from "next/head";
 import Loader from "@/components/Loader";
 import Error from "@/components/Error";
 
@@ -34,7 +34,6 @@ const Category = () => {
       case WOMENS_PAGE:
         setTitle("Women's Clothing");
         break;
-
       default:
         push("/");
     }

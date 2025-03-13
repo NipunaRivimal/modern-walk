@@ -7,6 +7,7 @@
   --custom-rose: #ff5e84;
   --box-shadow: 10px 15px 20px 0px #00000026;
   --box-hover-shadow: 12px 18px 25px 0px #00000040;
+  --custom-blue: #0e42fd;
 }
 
 @theme inline {

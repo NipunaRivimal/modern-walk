@@ -22,12 +22,14 @@ const useGetProducts = () => {
     const productCategory =
       category === MENS_PAGE ? MENS_CLOTHING : WOMENS_CLOTHING;
 
-    fetch("https://fakestoreapi.com/products")
+    const encodedCategory = encodeURIComponent(productCategory);
+
+    fetch(
+      `https://fakestoreapi.com/products/category/${encodedCategory}?sort=desc&limit=8`
+    )
       .then((response) => response.json() as Promise<Product[]>)
       .then((data) => {
-        setProducts(
-          data.filter((product) => product.category === productCategory)
-        );
+        setProducts(data);
         setIsLoading(false);
       })
       .catch((error) => {

@@ -2,7 +2,9 @@ import Head from "next/head";
 
 import CategoryCard from "@/components/CategoryCard";
 import ProductCard from "@/components/ProductCard";
-import { Gender } from "@/types/types";
+import { ProductCategory } from "@/types/types";
+
+const { MENS_CLOTHING, WOMENS_CLOTHING } = ProductCategory;
 
 const data = [
   {
@@ -79,8 +81,8 @@ export default function Home() {
           Categories
         </h2>
         <div className="flex justify-between mt-2 gap-6">
-          <CategoryCard gender={Gender.Men} />
-          <CategoryCard gender={Gender.Women} />
+          <CategoryCard category={MENS_CLOTHING} />
+          <CategoryCard category={WOMENS_CLOTHING} />
         </div>
       </main>
     </>

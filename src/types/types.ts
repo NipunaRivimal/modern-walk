@@ -1,8 +1,3 @@
-export enum Gender {
-  Men,
-  Women,
-}
-
 export type Product = {
   id: number;
   title: string;
