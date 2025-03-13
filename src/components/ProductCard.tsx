@@ -10,15 +10,19 @@ import {
 
 interface Props {
   product: Product;
+  cardWidth?: number;
 }
 
-const ProductCard: FC<Props> = ({ product }) => {
+const ProductCard: FC<Props> = ({ product, cardWidth = 300 }) => {
   const { category, description, price, image, title } = product;
   const { backgroundColor } =
     productCategoryStyles[category] || defaultProductCategoryStyles;
 
   return (
-    <div className="w-[300] min-w-[300] bg-white rounded-2xl shadow-[var(--box-shadow)] hover:shadow-[var(--box-hover-shadow)] overflow-hidden text-center cursor-pointer flex flex-col justify-between transition-shadow duration-300">
+    <div
+      className="bg-white rounded-2xl shadow-[var(--box-shadow)] hover:shadow-[var(--box-hover-shadow)] overflow-hidden text-center cursor-pointer flex flex-col justify-between transition-shadow duration-300"
+      style={{ width: `${cardWidth}px`, minWidth: `${cardWidth}px` }}
+    >
       <h2 className="px-4 pt-4 pb-2 text-lg font-semibold text-gray-800">
         {title}
       </h2>
