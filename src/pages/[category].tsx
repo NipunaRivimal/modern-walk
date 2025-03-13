@@ -10,7 +10,14 @@ import Loader from "@/components/common/Loader";
 import Error from "@/components/common/Error";
 import getCategory from "@/utils/getCategory";
 
-const { MENS_PAGE, WOMENS_PAGE } = ProductPage;
+const { MENS_PAGE } = ProductPage;
+
+const getTitle = (category: string) => {
+  if (!Object.values(ProductPage).includes(category as ProductPage))
+    return null;
+
+  return category === MENS_PAGE ? "Men's Clothing" : "Women's Clothing";
+};
 
 const Category = () => {
   const [title, setTitle] = useState("");
@@ -29,16 +36,14 @@ const Category = () => {
   useEffect(() => {
     if (!category) return;
 
-    switch (category) {
-      case MENS_PAGE:
-        setTitle("Men's Clothing");
-        break;
-      case WOMENS_PAGE:
-        setTitle("Women's Clothing");
-        break;
-      default:
-        push("/");
+    const _title = getTitle(category as string);
+
+    if (!_title) {
+      push("/");
+      return;
     }
+
+    setTitle(_title);
   }, [category]);
 
   return (
