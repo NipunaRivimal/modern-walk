@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Product, ProductCategory } from "@/types/types";
 import useGetProducts from "@/hooks/useGetProducts";
 import ProductCard from "./ProductCard";
-import Loader from "./Loader";
-import Error from "./Error";
+import Loader from "./common/Loader";
+import Error from "./common/Error";
 
 const { MENS_CLOTHING, WOMENS_CLOTHING } = ProductCategory;
 

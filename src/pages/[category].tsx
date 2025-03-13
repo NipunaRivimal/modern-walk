@@ -6,8 +6,8 @@ import Head from "next/head";
 import { ProductPage } from "@/types/types";
 import ProductCard from "@/components/ProductCard";
 import useGetProducts from "@/hooks/useGetProducts";
-import Loader from "@/components/Loader";
-import Error from "@/components/Error";
+import Loader from "@/components/common/Loader";
+import Error from "@/components/common/Error";
 import getCategory from "@/utils/getCategory";
 
 const { MENS_PAGE, WOMENS_PAGE } = ProductPage;
