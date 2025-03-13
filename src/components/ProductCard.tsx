@@ -18,7 +18,7 @@ const ProductCard: FC<Props> = ({ product }) => {
     productCategoryStyles[category] || defaultProductCategoryStyles;
 
   return (
-    <div className="w-[300] bg-white rounded-2xl shadow-[var(--box-shadow)] hover:shadow-[var(--box-hover-shadow)] overflow-hidden text-center cursor-pointer flex flex-col justify-between transition-shadow duration-300">
+    <div className="w-[300] min-w-[300] bg-white rounded-2xl shadow-[var(--box-shadow)] hover:shadow-[var(--box-hover-shadow)] overflow-hidden text-center cursor-pointer flex flex-col justify-between transition-shadow duration-300">
       <h2 className="px-4 pt-4 pb-2 text-lg font-semibold text-gray-800">
         {title}
       </h2>

@@ -1,31 +1,29 @@
 import { useEffect, useState } from "react";
 
-import { useRouter } from "next/router";
+import { Product, ProductCategory, Sort } from "@/types/types";
 
-import { Product, ProductCategory, ProductPage } from "@/types/types";
+interface GetProductsProps {
+  category: ProductCategory;
+  sort?: Sort;
+  limit?: number;
+}
 
-const { MENS_CLOTHING, WOMENS_CLOTHING } = ProductCategory;
-const { MENS_PAGE } = ProductPage;
-
-const useGetProducts = () => {
+const useGetProducts = ({
+  category,
+  limit = 8,
+  sort = Sort.DESC,
+}: GetProductsProps) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  const {
-    query: { category },
-  } = useRouter();
-
   useEffect(() => {
     if (!category) return;
 
-    const productCategory =
-      category === MENS_PAGE ? MENS_CLOTHING : WOMENS_CLOTHING;
-
-    const encodedCategory = encodeURIComponent(productCategory);
+    const encodedCategory = encodeURIComponent(category);
 
     fetch(
-      `https://fakestoreapi.com/products/category/${encodedCategory}?sort=desc&limit=8`
+      `https://fakestoreapi.com/products/category/${encodedCategory}?sort=${sort}&limit=${limit}`
     )
       .then((response) => response.json() as Promise<Product[]>)
       .then((data) => {

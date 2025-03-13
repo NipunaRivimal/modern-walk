@@ -24,3 +24,8 @@ export enum ProductPage {
   MENS_PAGE = "mens-clothing",
   WOMENS_PAGE = "womens-clothing",
 }
+
+export enum Sort {
+  ASC = "asc",
+  DESC = "desc",
+}

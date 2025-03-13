@@ -8,21 +8,23 @@ import ProductCard from "@/components/ProductCard";
 import useGetProducts from "@/hooks/useGetProducts";
 import Loader from "@/components/Loader";
 import Error from "@/components/Error";
+import getCategory from "@/utils/getCategory";
 
 const { MENS_PAGE, WOMENS_PAGE } = ProductPage;
 
 const Category = () => {
   const [title, setTitle] = useState("");
-  const {
-    products,
-    isLoading: isLoadingProducts,
-    error: productError,
-  } = useGetProducts();
 
   const {
     query: { category },
     push,
   } = useRouter();
+
+  const {
+    products,
+    isLoading: isLoadingProducts,
+    error: productError,
+  } = useGetProducts({ category: getCategory(category as string) });
 
   useEffect(() => {
     if (!category) return;
@@ -44,12 +46,12 @@ const Category = () => {
   return (
     <div>
       <Head>
-        <title>{title} | Modern Walk</title>
+        <title>{`${title} | Modern Walk`}</title>
       </Head>
-      <h2 className="pb-2 text-2xl font-semibold text-gray-800">{title}</h2>
-      {isLoadingProducts ? (
-        <Loader />
-      ) : (
+      <h2 className="pb-10 text-2xl font-semibold text-gray-800">{title}</h2>
+      {isLoadingProducts && <Loader />}
+      {productError && <Error error={productError} />}
+      {!isLoadingProducts && !productError && (
         <div className="flex flex-wrap justify-center gap-6">
           {products.map((item) => {
             return <ProductCard key={item.id} product={item} />;

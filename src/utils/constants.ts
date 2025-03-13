@@ -7,12 +7,12 @@ export const productCategoryStyles: Partial<
   >
 > = {
   [ProductCategory.MENS_CLOTHING]: {
-    title: "Men's Collection",
+    title: "Men's Clothing",
     backgroundColor: "bg-[var(--custom-green)]",
     page: ProductPage.MENS_PAGE,
   },
   [ProductCategory.WOMENS_CLOTHING]: {
-    title: "Women's Collection",
+    title: "Women's Clothing",
     backgroundColor: "bg-[var(--custom-rose)]",
     page: ProductPage.WOMENS_PAGE,
   },
