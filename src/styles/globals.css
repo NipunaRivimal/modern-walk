@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #f5f5f5;
   --foreground: #171717;
   --custom-green: #2bd9af;
   --custom-rose: #ff5e84;
   --box-shadow: 10px 15px 20px 0px #00000026;
+  --box-hover-shadow: 12px 18px 25px 0px #00000040;
 }
 
 @theme inline {

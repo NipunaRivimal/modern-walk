@@ -51,7 +51,7 @@ const Category = () => {
       {isLoadingProducts ? (
         <Loader />
       ) : (
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {products.map((item) => {
             return <ProductCard key={item.id} product={item} />;
           })}

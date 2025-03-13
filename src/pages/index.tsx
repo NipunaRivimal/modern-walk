@@ -70,7 +70,7 @@ export default function Home() {
         <h2 className="pb-2 text-2xl font-semibold text-gray-800">
           Flash Sale
         </h2>
-        <div className="flex flex-wrap gap-6 mb-6">
+        <div className="flex flex-wrap justify-center gap-6 mb-6">
           {data.map((item) => {
             return <ProductCard key={item.id} product={item} />;
           })}
