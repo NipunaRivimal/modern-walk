@@ -3,6 +3,10 @@ import React, { FC } from "react";
 import Image from "next/image";
 
 import { Product } from "@/types/types";
+import {
+  defaultProductCategoryStyles,
+  productCategoryStyles,
+} from "@/utils/constants";
 
 interface Props {
   product: Product;
@@ -10,10 +14,8 @@ interface Props {
 
 const ProductCard: FC<Props> = ({ product }) => {
   const { category, description, price, image, title } = product;
-  const bgColor =
-    category === "men's clothing"
-      ? "bg-[var(--custom-green)]"
-      : "bg-[var(--custom-rose)]";
+  const { backgroundColor } =
+    productCategoryStyles[category] || defaultProductCategoryStyles;
 
   return (
     <div className="w-[300] bg-white rounded-2xl shadow-[var(--box-shadow)] hover:shadow-[var(--box-hover-shadow)] overflow-hidden text-center cursor-pointer flex flex-col justify-between transition-shadow duration-300">
@@ -31,7 +33,9 @@ const ProductCard: FC<Props> = ({ product }) => {
             priority
           />
         </div>
-        <div className={`p-4 text-black rounded-t-2xl ${bgColor} mt-auto`}>
+        <div
+          className={`p-4 text-black rounded-t-2xl ${backgroundColor} mt-auto`}
+        >
           <p className="text-xl font-bold text-[var(--custom-blue)] mb-1">
             Rs {price}
           </p>

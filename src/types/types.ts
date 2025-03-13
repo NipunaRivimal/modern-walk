@@ -3,7 +3,7 @@ export type Product = {
   title: string;
   price: number;
   description: string;
-  category: string;
+  category: ProductCategory;
   image: string;
   rating: Rating;
 };
@@ -16,6 +16,8 @@ export type Rating = {
 export enum ProductCategory {
   MENS_CLOTHING = "men's clothing",
   WOMENS_CLOTHING = "women's clothing",
+  ELECTRONICS = "electronics",
+  JEWELERY = "jewelery",
 }
 
 export enum ProductPage {
